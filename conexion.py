@@ -1,10 +1,13 @@
 import sqlite3
+import os
+
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 class conexBD:
     #Se instancia desde la clase Personal.py
     #con y cur
     def __init__ (self):
-        self.con=sqlite3.connect("./DATOS")
+        self.con=sqlite3.connect(os.path.join(ROOT_DIR, "./DATOS"))
         self.cur=self.con.cursor()
         
     def crearCapacitacion(self):
